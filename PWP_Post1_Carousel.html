@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PWP Post 1 — Healthcare Case Study Carousel</title>
+<style>
+  
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #E8E8E8;
+    padding: 40px 20px;
+  }
+
+  .instructions {
+    max-width: 1080px;
+    margin: 0 auto 32px;
+    background: #0a4c3e;
+    color: #fff;
+    padding: 20px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .instructions strong { color: #e8be51; }
+  .instructions ol { margin-left: 20px; margin-top: 8px; }
+
+  .slide-wrapper {
+    max-width: 1080px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+  .slide-counter {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  }
+
+  /* ── SLIDE 1: COVER ── */
+  .s1 {
+    background: #0a4c3e;
+    justify-content: flex-end;
+    padding: 80px;
+  }
+  .s1::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,190,81,0.15) 0%, transparent 65%);
+  }
+  .s1::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, #e8be51 0%, transparent 100%);
+  }
+  .s1 .tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #e8be51;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .s1 .headline {
+    font-size: 64px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  .s1 .headline em { color: #e8be51; font-style: normal; }
+  .s1 .subtext {
+    font-size: 22px;
+    color: #a8c4bc;
+    line-height: 1.5;
+    max-width: 700px;
+  }
+  .s1 .swipe {
+    position: absolute;
+    top: 80px; right: 80px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #e8be51;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .s1 .swipe::after {
+    content: '→';
+    font-size: 18px;
+  }
+  .s1 .pwp-brand {
+    position: absolute;
+    top: 80px; left: 80px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #e8be51;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ── SLIDE 2: CONTEXT ── */
+  .s2 {
+    background: #F4F6F9;
+    padding: 80px;
+    justify-content: center;
+  }
+  .slide-num {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(10,76,62,0.06);
+    position: absolute;
+    top: 40px; right: 60px;
+    line-height: 1;
+    user-select: none;
+  }
+  .section-tag {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #e8be51;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .slide-title {
+    font-size: 52px;
+    font-weight: 900;
+    color: #0a4c3e;
+    margin-bottom: 48px;
+    line-height: 1.1;
+  }
+  .context-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .context-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    border-left: 4px solid #e8be51;
+  }
+  .context-card .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #e8be51;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .context-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0a4c3e;
+    line-height: 1.3;
+  }
+  .bottom-line {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, #e8be51 0%, transparent 100%);
+  }
+  .pwp-tag {
+    position: absolute;
+    bottom: 24px; right: 80px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9CA3AF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── SLIDE 3: CHALLENGE ── */
+  .s3 {
+    background: #0a4c3e;
+    padding: 80px;
+    justify-content: center;
+  }
+  .s3 .slide-num { color: rgba(255,255,255,0.04); }
+  .s3 .section-tag { color: #e8be51; }
+  .s3 .slide-title { color: #fff; }
+  .challenge-stat {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 28px 32px;
+    flex: 1;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-size: 48px;
+    font-weight: 900;
+    color: #e8be51;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-box .desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+  .insight-quote {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    border-left: 4px solid #e8be51;
+    padding-left: 32px;
+  }
+
+  /* ── SLIDE 4: APPROACH ── */
+  .s4 {
+    background: #fff;
+    padding: 80px;
+    justify-content: center;
+  }
+  .approach-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background: #F4F6F9;
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .step-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: #0a4c3e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #e8be51;
+    margin-top: 2px;
+  }
+  .step-content .step-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0a4c3e;
+    margin-bottom: 6px;
+  }
+  .step-content .step-desc {
+    font-size: 17px;
+    color: #4A5568;
+    line-height: 1.5;
+  }
+
+  /* ── SLIDE 5: WHY UGC ── */
+  .s5 {
+    background: #0a4c3e;
+    padding: 80px;
+    justify-content: center;
+  }
+  .s5 .section-tag { color: #e8be51; }
+  .s5 .slide-title { color: #fff; margin-bottom: 40px; }
+  .reason-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .reason {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .reason:last-child { border-bottom: none; padding-bottom: 0; }
+  .reason-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: #e8be51;
+    line-height: 1;
+    min-width: 48px;
+  }
+  .reason-text {
+    padding-top: 6px;
+  }
+  .reason-text strong {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .reason-text span {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  /* ── SLIDE 6: RESULTS ── */
+  .s6 {
+    background: #F4F6F9;
+    padding: 80px;
+    justify-content: center;
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .result-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .result-check {
+    font-size: 28px;
+    line-height: 1;
+    color: #e8be51;
+    font-weight: 900;
+    min-width: 32px;
+  }
+  .result-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0a4c3e;
+    line-height: 1.4;
+  }
+
+  /* ── SLIDE 7: TAKEAWAY ── */
+  .s7 {
+    background: #fff;
+    padding: 80px;
+    justify-content: center;
+  }
+  .takeaway-box {
+    background: linear-gradient(135deg, #0a4c3e 0%, #0d5c4a 100%);
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .takeaway-box .t-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #e8be51;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .takeaway-box .t-text {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+  .takeaway-box .t-text em {
+    font-style: normal;
+    color: #e8be51;
+  }
+  .takeaway-box .t-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── SLIDE 8: CTA ── */
+  .s8 {
+    background: #0a4c3e;
+    padding: 80px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .s8::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,190,81,0.1) 0%, transparent 65%);
+  }
+  .s8 .lab-logo {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #e8be51;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .s8 .cta-headline {
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .s8 .cta-sub {
+    font-size: 22px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 56px;
+    line-height: 1.5;
+  }
+  .s8 .cta-pill {
+    display: inline-block;
+    background: #e8be51;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 20px 48px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+  }
+  .s8 .cta-note {
+    font-size: 16px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  @page {
+    size: 1080px 1080px;
+    margin: 0;
+  }
+
+  @media print {
+    body { background: white; padding: 0; margin: 0; }
+    .instructions { display: none; }
+    .slide-counter { display: none; }
+    .slide-wrapper {
+      margin: 0;
+      padding: 0;
+      page-break-after: always;
+      break-after: page;
+      width: 1080px;
+      height: 1080px;
+    }
+    .slide {
+      width: 1080px !important;
+      height: 1080px !important;
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <strong>How to export as a LinkedIn-ready PDF (Chrome recommended):</strong>
+  <ol>
+    <li><strong>File → Print</strong> (or Ctrl/Cmd + P)</li>
+    <li>Destination: <strong>Save as PDF</strong></li>
+    <li>Paper size: <strong>Custom</strong> → set Width: <strong>28.58 cm</strong> and Height: <strong>28.58 cm</strong> (= 1080 × 1080px square)</li>
+    <li>Margins: <strong>None</strong></li>
+    <li>Scale: <strong>100%</strong></li>
+    <li>Check <strong>"Background graphics"</strong> — required for colors and backgrounds</li>
+    <li>Click <strong>Save</strong></li>
+  </ol>
+  <br>
+  <strong>On LinkedIn:</strong> Start a post → click the <strong>document icon</strong> → upload the PDF. Each page becomes one swipeable slide.<br>
+  <strong>Caption</strong> is in your <em>PWP_Week1_ContentGuide.docx</em>.
+</div>
+
+<!-- SLIDE 1 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 1 of 8 — Cover</div>
+  <div class="slide s1">
+    <div class="pwp-brand">Post with Passion · PWP</div>
+    <div class="swipe">Swipe to see the full case</div>
+    <div class="tag">Healthcare &amp; Aesthetics · PWP Case Study</div>
+    <div class="headline">A premium Riyadh<br>clinic had a strong<br>reputation. Their<br>content <em>didn't reflect it.</em></div>
+    <div class="subtext">Here's how we closed the gap — and what it taught us about authenticity in premium healthcare marketing.</div>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 2 of 8 — Context</div>
+  <div class="slide s2">
+    <div class="slide-num">02</div>
+    <div class="section-tag">The Context</div>
+    <div class="slide-title">Setting the scene</div>
+    <div class="context-grid">
+      <div class="context-card">
+        <div class="label">Sector</div>
+        <div class="value">Premium Dermatology &amp; Aesthetic Clinic</div>
+      </div>
+      <div class="context-card">
+        <div class="label">Market</div>
+        <div class="value">Riyadh — elite, trust-first clientele</div>
+      </div>
+      <div class="context-card">
+        <div class="label">Stage</div>
+        <div class="value">Established clinic — strong reputation, loyal clients, real results</div>
+      </div>
+      <div class="context-card">
+        <div class="label">The Gap</div>
+        <div class="value">Digital content that looked polished but didn't capture real client experiences or outcomes.</div>
+      </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="pwp-tag">PWP · Post with Passion</div>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 3 of 8 — The Challenge</div>
+  <div class="slide s3">
+    <div class="slide-num">03</div>
+    <div class="section-tag">The Challenge</div>
+    <div class="slide-title">Strong reputation.<br>Content that didn't match it.</div>
+    <div class="challenge-stat">
+      <div class="stat-box">
+        <div class="num" style="font-size:32px;padding-top:8px;">Real clients</div>
+        <div class="desc">were sharing genuine satisfaction privately — through referrals and conversations</div>
+      </div>
+      <div class="stat-box">
+        <div class="num" style="font-size:32px;padding-top:8px;">Online content</div>
+        <div class="desc">looked professional but felt generic — it didn't reflect those real client voices</div>
+      </div>
+      <div class="stat-box">
+        <div class="num" style="font-size:32px;padding-top:8px;">The gap</div>
+        <div class="desc">potential clients researching online couldn't feel the authenticity behind the brand</div>
+      </div>
+    </div>
+    <div class="insight-quote">"The challenge wasn't visibility. It was authenticity. Their best story was being told quietly by clients to each other — not by their content."</div>
+    <div class="pwp-tag">PWP · Post with Passion</div>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 4 of 8 — The Approach</div>
+  <div class="slide s4">
+    <div class="slide-num">04</div>
+    <div class="section-tag">The Approach</div>
+    <div class="slide-title">What we built</div>
+    <div class="approach-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Built a UGC pipeline from real patients</div>
+          <div class="step-desc">Authentic stories. Aspirational lifestyle. Content that felt real — because it was. Not a brand shoot. Not actors. Real people, real results.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Defined the targeting precisely</div>
+          <div class="step-desc">Audience segments built around interest, behavior, location, and income signals specific to Riyadh's premium market.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Distributed with performance marketing</div>
+          <div class="step-desc">The right content in front of the right people at the right moment in their decision journey. Authenticity + precision = trust at scale.</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="pwp-tag">PWP · Post with Passion</div>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 5 of 8 — Why UGC</div>
+  <div class="slide s5">
+    <div class="slide-num">05</div>
+    <div class="section-tag">The Insight</div>
+    <div class="slide-title">Why UGC beat<br>brand content</div>
+    <div class="reason-list">
+      <div class="reason">
+        <div class="reason-num">01</div>
+        <div class="reason-text">
+          <strong>Authenticity builds trust faster than production value</strong>
+          <span>In a trust-first market like premium aesthetics, real beats polished. A brand video says "we're great." A real patient says "I trust them." Those are not the same thing.</span>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">02</div>
+        <div class="reason-text">
+          <strong>It answers the questions prospects are actually asking</strong>
+          <span>Potential clients research specific outcomes and experiences before booking. UGC directly mirrors those searches in a way scripted ads never can.</span>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">03</div>
+        <div class="reason-text">
+          <strong>It costs a fraction — and converts higher</strong>
+          <span>Faster to produce, lower cost, higher relevance. UGC gives you more creative to test and more data on what actually resonates.</span>
+        </div>
+      </div>
+    </div>
+    <div class="pwp-tag">PWP · Post with Passion</div>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 6 of 8 — Results</div>
+  <div class="slide s6">
+    <div class="slide-num">06</div>
+    <div class="section-tag">The Outcome</div>
+    <div class="slide-title">What happened</div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-check">✓</div>
+        <div class="result-text">Inbound appointment inquiries increased consistently month-over-month</div>
+      </div>
+      <div class="result-card">
+        <div class="result-check">✓</div>
+        <div class="result-text">Brand moved from invisible to aspirational in the target market segment</div>
+      </div>
+      <div class="result-card">
+        <div class="result-check">✓</div>
+        <div class="result-text">Content continued to perform and acquire new audiences weeks after publication</div>
+      </div>
+      <div class="result-card">
+        <div class="result-check">✓</div>
+        <div class="result-text">Clinic became the destination of choice for elite Riyadh clientele — not just a service provider</div>
+      </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="pwp-tag">PWP · Post with Passion</div>
+  </div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 7 of 8 — Takeaway</div>
+  <div class="slide s7">
+    <div class="slide-num">07</div>
+    <div class="section-tag">The Takeaway</div>
+    <div class="slide-title">What this means<br>for your brand</div>
+    <div class="takeaway-box">
+      <div class="t-label">The insight</div>
+      <div class="t-text">If your brand depends on <em>trust and word-of-mouth</em> — your happiest customers are walking out the door with your most powerful marketing asset.</div>
+      <div class="t-sub">You just need a system to capture it, and the distribution to put it in front of the right people at the right moment. That's exactly what UGC × Performance Marketing does.</div>
+    </div>
+    <div class="pwp-tag">PWP · Post with Passion</div>
+  </div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide-wrapper">
+  <div class="slide-counter">Slide 8 of 8 — CTA</div>
+  <div class="slide s8">
+    <div class="lab-logo">The Lab · Post with Passion</div>
+    <div class="cta-headline">30 days.<br>Real content.<br>Real results.</div>
+    <div class="cta-sub">We run campaign validation sprints<br>for brands ready to test before they scale.</div>
+    <div class="cta-pill">DM "LAB" to get started →</div>
+    <div class="cta-note">Saudi Arabia · 8 sectors · One proven model</div>
+  </div>
+</div>
+
+</body>
+</html>
